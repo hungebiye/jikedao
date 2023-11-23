@@ -5,14 +5,10 @@
     <Seckill></Seckill>
     <!-- keep-alive影响组件数据更新 -->
     <div id="router-link">
-      <router-view
-        v-if="!$route.meta.include"
-      ></router-view>
+      <router-view v-if="!$route.meta.include"></router-view>
       <keep-alive>
         <!-- 购物车第二次正常运行 -->
-        <router-view
-          v-if="$route.meta.include"
-        ></router-view>
+        <router-view v-if="$route.meta.include"></router-view>
       </keep-alive>
     </div>
     <div ref="testRef"></div>
@@ -23,65 +19,64 @@
 </template>
 
 <script>
-import Swiper from "../components/swiper.vue";
-import Nav from "../components/nav.vue";
-import { mixin } from "../assets/js/mixin";
-import focus from "../assets/js/diretives";
-import RightFixed from "../components/fixed-right.vue";
-import Footer from "../components/footer.vue";
-import Seckill from "../components/seckill.vue";
+import Swiper from '../components/swiper.vue'
+import Nav from '../components/nav.vue'
+import { mixin } from '../assets/js/mixin'
+import focus from '../assets/js/diretives'
+import RightFixed from '../components/fixed-right.vue'
+import Footer from '../components/footer.vue'
+import Seckill from '../components/seckill.vue'
 
 export default {
-  name: "home",
+  name: 'home',
   data() {
     return {
-      serach: "",
+      serach: '',
       shoppingcar: this.$store.state.Shopping_Car,
       order: this.$store.state.Order,
       flag: true,
-      timer: "",
-      inputMsg: "",
-      reg_show: false,
-    };
+      timer: '',
+      inputMsg: '',
+      reg_show: false
+    }
   },
   mixins: [mixin],
   created() {
-    this.$store.dispatch("getUsers"); //已注册用户
-    this.$store.dispatch("getShop");
-    this.$store.dispatch("getOrderList");
+    this.$store.dispatch('getUsers') //已注册用户
+    this.$store.dispatch('getShop')
+    this.$store.dispatch('getOrderList')
   },
   mounted() {
-    this.$store.commit("hasUser");
+    this.$store.commit('hasUser')
     // this.axios.get('/page?currentPage=1&pageSize=4').then(res=>{
     //   console.log(res)
     // })
-
   },
   methods: {
     getAxois() {
       //节流
       if (this.flag) {
-        this.flag = false;
+        this.flag = false
         this.axios({
-          method: "get",
-          url: "data.json",
+          method: 'get',
+          url: 'data.json'
         }).then((res) => {
-          console.log(res);
-        });
+          console.log(res)
+        })
         setTimeout(() => {
-          this.flag = true;
-        }, 2000);
+          this.flag = true
+        }, 2000)
       }
       //防抖
-      clearTimeout(this.timer);
+      clearTimeout(this.timer)
       this.timer = setTimeout(() => {
         this.axios({
-          method: "get",
-          url: "data.json",
+          method: 'get',
+          url: 'data.json'
         }).then((res) => {
-          console.log("防抖实现");
-        });
-      }, 1000);
+          console.log('防抖实现')
+        })
+      }, 1000)
       // console.log(this.$refs.testRef)
       // this.$nextTick(()=>{
       //   let dom = document.getElementById("h1").innerHTML
@@ -93,35 +88,34 @@ export default {
     axoisGet(id) {
       let get = (url) => {
         return (params) => {
-          return this.axios
-            .get(url, {
-              params,
-            })
-            .then((res) => {
-              return res.data;
-            });
-        };
-      };
-      let getdetial = get("/api/axios.json");
-      getdetial({
-        id: id,
-      });
-    },
+          return this.axios.get(url, { params }).then((res) => {
+            return res.data
+          })
+        }
+      }
+      let getdetial = get('/api/axios.json')
+      getdetial({ id: id })
+    }
   },
   directives: {
-    focus: focus,
+    focus: focus
   },
   components: {
     Swiper,
     RightFixed,
     Footer,
     Seckill,
-    Nav,
-  },
-};
+    Nav
+  }
+}
 </script>
 
 <style>
+body, html {
+  margin: 0;
+  padding: 0;
+}
+
 #backtop {
   width: 80px;
   height: 80px;
@@ -136,6 +130,7 @@ export default {
   padding-right: 0;
 }
 </style>
+
 <style>
 .el-row {
   margin-bottom: 20px;
@@ -170,6 +165,7 @@ export default {
 .serach {
   width: 400px;
 }
+
 .color {
   margin-top: 20px;
   margin-bottom: 20px;

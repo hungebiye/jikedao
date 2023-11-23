@@ -7,62 +7,43 @@
       <el-step title="" description="成功提交订单"></el-step>
     </el-steps> -->
     <el-row>
-      <el-col :span="1"><div class="grid-content"></div></el-col>
-      <el-col :span="22"
-        ><div class="grid-content bg-purple">
-          <el-table
-            :data="$store.state.orderList"
-            border
-            style="width: 100%"
-            max-height="530"
-          >
-          <!-- <el-table-column label="创建日期"  prop="createdTime">
+      <el-col :span="1">
+        <div class="grid-content"></div>
+      </el-col>
+      <el-col :span="22">
+        <div class="grid-content bg-purple">
+          <el-table :data="$store.state.orderList" border style="width: 100%"
+            max-height="530">
+            <!-- <el-table-column label="创建日期"  prop="createdTime">
              
             </el-table-column>
              <el-table-column
               prop="receiver"
               label="收货人"
             ></el-table-column> -->
-             <el-table-column label="订单编号">
+            <el-table-column label="订单编号">
               <template slot-scope="scope">
-               15{{scope.row.id}}{{scope.row.userPhone}}
+                15{{scope.row.id}}{{scope.row.userPhone}}
               </template>
             </el-table-column>
-             <el-table-column
-              prop="createdTime"
-              label="创建时间"
-            ></el-table-column>
-            <el-table-column label="收获地址" >
-           <template slot-scope="scope">
+            <el-table-column prop="createdTime" label="创建时间"></el-table-column>
+            <el-table-column label="收获地址">
+              <template slot-scope="scope">
                 {{scope.row.userAddress}} {{scope.row.userAddressDetails}}
               </template>
             </el-table-column>
-             <el-table-column
-              prop="reciver"
-              label="收获人"
-            ></el-table-column>
+            <el-table-column prop="reciver" label="收获人"></el-table-column>
             <el-table-column label="商品">
               <template slot-scope="scope">
-                <img
-                  :src="scope.row.img"
-                  :style="{ height: '60px', widith: '60px' }"
-                />
+                <img :src="scope.row.img"
+                  :style="{ height: '60px', widith: '60px' }" />
               </template>
             </el-table-column>
-             <el-table-column
-              prop="userPhone"
-              label="收获号码"
-            ></el-table-column>
-            <el-table-column
-              prop="id"
-              label="订单编号"
-            ></el-table-column>
-            <el-table-column
-              prop="name"
-              label="商品名称"
-            ></el-table-column>
-           
-            <el-table-column prop="number" label="数量" >
+            <el-table-column prop="userPhone" label="收获号码"></el-table-column>
+            <el-table-column prop="id" label="订单编号"></el-table-column>
+            <el-table-column prop="name" label="商品名称"></el-table-column>
+
+            <el-table-column prop="number" label="数量">
               <template slot-scope="scope">
                 {{ scope.row.number }}
               </template>
@@ -73,13 +54,15 @@
                 {{ scope.row.price * scope.row.number }}
               </template>
             </el-table-column>
-           
+
           </el-table>
-      
-          <!-- <p :style="{'line-height':'50px','margin-right':'100px','color':'red'}">合计：{{countTotalPrice}}</p> -->    
+
+          <!-- <p :style="{'line-height':'50px','margin-right':'100px','color':'red'}">合计：{{countTotalPrice}}</p> -->
         </div>
       </el-col>
-      <el-col :span="1"><div class="grid-content"></div></el-col>
+      <el-col :span="1">
+        <div class="grid-content"></div>
+      </el-col>
     </el-row>
   </div>
 </template>

@@ -44,7 +44,7 @@ export default {
 </script>
 <style scoped>
 #footer{
-    height: 300px;
+    padding: 20px 0;
     background-color:aliceblue;
     margin-top: 20px;
 }
@@ -56,7 +56,6 @@ export default {
 }
 .footer-list div{
     margin-top: 20px;
-
 }
 h4{
     text-align: left;

@@ -7,52 +7,27 @@
       <el-step title="" description="成功提交订单"></el-step>
     </el-steps>
     <el-row>
-      <el-col :span="1"><div class="grid-content"></div></el-col>
-      <el-col :span="22"
-        ><div class="grid-content bg-purple">
-          <el-table
-            :data="$store.state.Order"
-            border
-            style="width: 100%"
-            max-height="530"
-          >
-          <el-table-column label="创建日期"  prop="createdTime">
-             
-            </el-table-column>
-             <el-table-column
-              prop="receivingAddress.receiver"
-              label="收货人"
-            ></el-table-column>
+      <el-col :span="1">
+        <div class="grid-content"></div>
+      </el-col>
+      <el-col :span="22">
+        <div class="grid-content bg-purple">
+          <el-table :data="$store.state.Order" border style="width: 100%" max-height="530">
+            <el-table-column label="创建日期" prop="createdTime"></el-table-column>
+            <el-table-column prop="receivingAddress.receiver" label="收货人"></el-table-column>
             <el-table-column label="收获地址" width="230px">
-           <template slot-scope="scope">
-                {{scope.row.receivingAddress.userAddress}} {{scope.row.receivingAddress.userAddressDetails}}
-              </template>
+              <template slot-scope="scope">{{ scope.row.receivingAddress.userAddress }} {{ scope.row.receivingAddress.userAddressDetails }}</template>
             </el-table-column>
-             <el-table-column
-              prop="receivingAddress.userPhone"
-              label="联系电话"
-            ></el-table-column>
+            <el-table-column prop="receivingAddress.userPhone" label="联系电话"></el-table-column>
             <el-table-column label="商品">
               <template slot-scope="scope">
-                <img
-                  :src="scope.row.commodityList.img"
-                  :style="{ height: '60px', widith: '60px' }"
-                />
+                <img :src="scope.row.commodityList.img" :style="{ height: '60px', widith: '60px' }" />
               </template>
             </el-table-column>
-            <el-table-column
-              prop="commodityList.id"
-              label="订单编号"
-            ></el-table-column>
-            <el-table-column
-              prop="commodityList.name"
-              label="商品名称"
-            ></el-table-column>
-            <el-table-column
-              prop="commodityList.price"
-              label="单价"
-            ></el-table-column>
-            <el-table-column prop="commodityList.number" label="数量" >
+            <el-table-column prop="commodityList.id" label="订单编号"></el-table-column>
+            <el-table-column prop="commodityList.name" label="商品名称"></el-table-column>
+            <el-table-column prop="commodityList.price" label="单价"></el-table-column>
+            <el-table-column prop="commodityList.number" label="数量">
               <template slot-scope="scope">
                 {{ scope.row.commodityList.number }}
               </template>
@@ -65,20 +40,18 @@
             </el-table-column>
             <el-table-column label="操作">
               <template slot-scope="scope">
-                <el-button
-                  @click.native.prevent="deleteRow(scope.$index, commodityList)"
-                  type="primary"
-                  icon="el-icon-delete"
-                  size="small"
-                  >{{  "申请退款" }}</el-button
-                >
+                <el-button @click.native.prevent="deleteRow(scope.$index, commodityList)" type="primary" icon="el-icon-delete" size="small">
+                  {{ '申请退款' }}
+                </el-button>
               </template>
             </el-table-column>
           </el-table>
-          <!-- <p :style="{'line-height':'50px','margin-right':'100px','color':'red'}">合计：{{countTotalPrice}}</p> -->    
+          <!-- <p :style="{'line-height':'50px','margin-right':'100px','color':'red'}">合计：{{countTotalPrice}}</p> -->
         </div>
       </el-col>
-      <el-col :span="1"><div class="grid-content"></div></el-col>
+      <el-col :span="1">
+        <div class="grid-content"></div>
+      </el-col>
     </el-row>
   </div>
 </template>
@@ -86,7 +59,7 @@
 // import CommodityList from "../components/commodityList.vue";
 export default {
   data() {
-    return {};
+    return {}
   },
   methods: {
     // deleteRow(index, rows) {
@@ -111,8 +84,7 @@ export default {
     //   }
     //   return sum;
     // },
-  },
-};
+  }
+}
 </script>
-<style scoped>
-</style>
+<style scoped></style>

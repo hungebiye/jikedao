@@ -1,17 +1,12 @@
 <template>
-  <div >
+  <div>
     <br />
     <el-row>
       <el-col :span="3">
-        <el-menu
-          router
-          class="el-menu-vertical-demo"
-          background-color="#545c64"
-          text-color="#409EFF"
-        >
-          <el-menu-item-group v-for="(item, index) in indexRoutes" :key="index+''"
-            ><!-- 路径前面要加上 /    /代表根路径 -->
-            <el-menu-item :class="menuIndex==index?'el-menu-active2':'' " :index="item.path" @click="menuIndex = index">{{item.name}}</el-menu-item>
+        <el-menu router class="el-menu-vertical-demo" background-color="#545c64" text-color="#409EFF">
+          <el-menu-item-group v-for="(item, index) in indexRoutes" :key="index + ''">
+            <!-- 路径前面要加上 /    /代表根路径 -->
+            <el-menu-item :class="menuIndex == index ? 'el-menu-active2' : ''" :index="item.path" @click="menuIndex = index">{{ item.name }}</el-menu-item>
           </el-menu-item-group>
         </el-menu>
       </el-col>
@@ -29,34 +24,35 @@
 export default {
   data() {
     return {
-      activeName: "first",
+      activeName: 'first',
       user_data: this.$store.state.account,
       Shop: this.$store.state.Commoditys,
-      Order: "",
+      Order: '',
       indexRoutes: [
-		  { path: "/backStage/personal", name: "个人中心" },
-        { path: "/backStage/user", name: "账号管理" },
-        { path: "/backStage/shopCar", name: "购物车" },
-        { path: "/backStage/order", name: "订单管理" },
-        { path: "/backStage/shop", name: "商品管理" },
+        { path: '/backStage/personal', name: '个人中心' },
+        { path: '/backStage/user', name: '账号管理' },
+        { path: '/backStage/shopCar', name: '购物车' },
+        { path: '/backStage/order', name: '订单管理' },
+        { path: '/backStage/shop', name: '商品管理' }
       ],
-      menuIndex:0,
-    };
+      menuIndex: 0
+    }
   },
   methods: {
     deleteRow(index, rows) {
-      rows.splice(index, 1);
-    },
+      rows.splice(index, 1)
+    }
   },
-  components: {},
-};
+  components: {}
+}
 </script>
-<style >
+<style>
 .el-menu-vertical-demo {
   width: 200px;
   height: 600px;
   border: 1px solid blue;
 }
+
 /* .el-menu-active2{
     background-color: red;
     border: 1px solid red;

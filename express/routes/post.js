@@ -6,7 +6,7 @@ var app = express() //创建express的实例
 
 router.post('/', (req, res) => {
   // res.header('Access-Control-Allow-Origin', req.headers.origin)
-  res.header("Access-Control-Allow-Origin", '*');
+  res.header('Access-Control-Allow-Origin', '*')
   res.header('Access-Control-Allow-Headers', 'Content-Type,Content-Length, Authorization, Accept,X-Requested-With')
   res.header('Access-Control-Allow-Methods', 'PUT,POST,GET,DELETE,OPTIONS')
   res.header('Access-Control-Allow-Credentials', 'true')
