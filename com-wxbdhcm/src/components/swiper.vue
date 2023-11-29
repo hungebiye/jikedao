@@ -87,9 +87,7 @@ export default {
 </script>
 <style>
 #swiper {
-  margin-top: 20px;
   width: 85vw;
-  height: 65vh;
   margin: auto;
 }
 .el-carousel {
@@ -111,21 +109,20 @@ export default {
 }
 .left li {
   list-style: none;
-  width: 100%;
   height: 60px;
   text-align: center;
   line-height: 60px;
 }
 .active {
-  background: red;
-  border: solid 2px slategray;
+  background: #ff6700;
+  border: solid 1px slategray;
 }
 .right {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   height: 450px;
-  width: 80%;
+  width: 74%;
   background: white;
 }
 .right_item {

@@ -106,7 +106,9 @@ export default {
 <style>
 #seckill {
   background-color: ghostwhite;
-  height: 25vw;
+  height: 400px;
+  padding-top: 1px;
+  margin-top: 24px;
 }
 
 .seckill-tip {
@@ -120,15 +122,15 @@ export default {
   font-size: 1.5vw;
 }
 .seckill-list {
-  width: 77.5vw;
+  width: 76.5vw;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-
+  grid-template-columns: repeat(5, 14.5vw);
+  justify-content: space-between;
   margin: auto;
 }
 .seckill-list div {
-  width: 15.5vw;
-  height: 20vw;
+  width: 14.5vw;
+  height: 308px;
 }
 .seckill-img {
   margin: 2vw 0 1vw 0;
