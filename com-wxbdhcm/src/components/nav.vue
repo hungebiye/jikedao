@@ -57,12 +57,6 @@ export default {
 </script>
 
 <style>
-@media only screen and (min-width: 768px) and (max-width: 1024px) {
-}
-
-@media only screen and (min-width: 320px) and (max-width: 767px) {
-}
-
 #nav {
   height: 50px;
   position: relative;

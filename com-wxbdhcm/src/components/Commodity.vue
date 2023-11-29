@@ -4,41 +4,21 @@
       <el-row>
         <el-col :span="4"><div class="grid-content"></div></el-col>
         <el-col :span="16">
-          <el-col
-            :span="6"
-            v-for="(item, i) in Shop_list[0]"
-            :key="i"
-            class="col-item"
-          >
+          <el-col :span="6" v-for="(item, i) in Shop_list[0]" :key="i" class="col-item">
             <el-card :body-style="{ padding: '0px' }">
               <img :src="'https:' + item.img" class="image" />
               <div style="padding: 14px">
-                <span>{{ item.name }}</span
-                ><br />
-                <span :style="{ color: 'red', size: '10px' }"
-                  >{{ item.price }}起</span
-                >
+                <span>{{ item.name }}</span>
+                <br />
+                <span :style="{ color: 'red', size: '10px' }">{{ item.price }}起</span>
                 <div class="bottom clearfix" v-if="$store.state.count_exist">
-                  <el-button
-                    icon="el-icon-circle-plus"
-                    class="button"
-                    @click="
-                      pushCar(item, item.id, item.name, item.img, item.price),
-                        open()
-                    "
-                    >购物车</el-button
-                  >
-                  <el-button
-                    icon="el-icon-s-goods"
-                    class="button"
-                    @click="Submit_Orders_fromShop(item)"
-                    >购买</el-button
-                  >
+                  <el-button icon="el-icon-circle-plus" class="button" @click="pushCar(item, item.id, item.name, item.img, item.price), open()">
+                    购物车
+                  </el-button>
+                  <el-button icon="el-icon-s-goods" class="button" @click="Submit_Orders_fromShop(item)">购买</el-button>
                 </div>
                 <div class="bottom clearfix" v-else>
-                  <el-button @click="$router.push('/Login')"
-                    >登录后查看</el-button
-                  >
+                  <el-button @click="$router.push('/Login')">登录后查看</el-button>
                 </div>
               </div>
             </el-card>
@@ -51,45 +31,23 @@
       <el-row>
         <el-col :span="4"><div class="grid-content"></div></el-col>
         <el-col :span="16">
-          <el-col
-            :span="6"
-            v-for="(item, i) in Shop_list[1]"
-            :key="i"
-            class="col-item"
-          >
+          <el-col :span="6" v-for="(item, i) in Shop_list[1]" :key="i" class="col-item">
             <el-card :body-style="{ padding: '0px' }">
               <img :src="'https:' + item.img" class="image2" />
               <div style="padding: 14px">
-                <span>{{ item.name }}</span
-                ><br />
-                <span :style="{ color: '#b0b0b0', 'font-size': '12px' }">{{
-                  item.introduction
-                }}</span
-                ><br />
-                <span :style="{ color: 'red', size: '10px' }"
-                  >{{ item.price }}起</span
-                >
+                <span>{{ item.name }}</span>
+                <br />
+                <span :style="{ color: '#b0b0b0', 'font-size': '12px' }">{{ item.introduction }}</span>
+                <br />
+                <span :style="{ color: 'red', size: '10px' }">{{ item.price }}起</span>
                 <div class="bottom clearfix" v-if="$store.state.count_exist">
-                  <el-button
-                    icon="el-icon-circle-plus"
-                    class="button"
-                    @click="
-                      pushCar(item, item.id, item.name, item.img, item.price),
-                        open()
-                    "
-                    >购物车</el-button
-                  >
-                  <el-button
-                    icon="el-icon-s-goods"
-                    class="button"
-                    @click="Submit_Orders_fromShop(item)"
-                    >购买</el-button
-                  >
+                  <el-button icon="el-icon-circle-plus" class="button" @click="pushCar(item, item.id, item.name, item.img, item.price), open()">
+                    购物车
+                  </el-button>
+                  <el-button icon="el-icon-s-goods" class="button" @click="Submit_Orders_fromShop(item)">购买</el-button>
                 </div>
                 <div class="bottom clearfix" v-else>
-                  <el-button @click="$router.push('/Login')"
-                    >登录后查看</el-button
-                  >
+                  <el-button @click="$router.push('/Login')">登录后查看</el-button>
                 </div>
               </div>
             </el-card>
@@ -102,45 +60,23 @@
       <el-row>
         <el-col :span="4"><div class="grid-content"></div></el-col>
         <el-col :span="16">
-          <el-col
-            :span="6"
-            v-for="(item, i) in Shop_list[2]"
-            :key="i"
-            class="col-item"
-          >
+          <el-col :span="6" v-for="(item, i) in Shop_list[2]" :key="i" class="col-item">
             <el-card :body-style="{ padding: '0px' }">
               <img :src="item.img" class="image2" />
               <div style="padding: 14px">
-                <span>{{ item.name }}</span
-                ><br />
-                <span :style="{ color: '#b0b0b0', 'font-size': '12px' }">{{
-                  item.introduction
-                }}</span
-                ><br />
-                <span :style="{ color: 'red', size: '10px' }"
-                  >{{ item.price }}起</span
-                >
+                <span>{{ item.name }}</span>
+                <br />
+                <span :style="{ color: '#b0b0b0', 'font-size': '12px' }">{{ item.introduction }}</span>
+                <br />
+                <span :style="{ color: 'red', size: '10px' }">{{ item.price }}起</span>
                 <div class="bottom clearfix" v-if="$store.state.count_exist">
-                  <el-button
-                    icon="el-icon-circle-plus"
-                    class="button"
-                    @click="
-                      pushCar(item, item.id, item.name, item.img, item.price),
-                        open()
-                    "
-                    >购物车</el-button
-                  >
-                  <el-button
-                    icon="el-icon-s-goods"
-                    class="button"
-                    @click="Submit_Orders_fromShop(item)"
-                    >购买</el-button
-                  >
+                  <el-button icon="el-icon-circle-plus" class="button" @click="pushCar(item, item.id, item.name, item.img, item.price), open()">
+                    购物车
+                  </el-button>
+                  <el-button icon="el-icon-s-goods" class="button" @click="Submit_Orders_fromShop(item)">购买</el-button>
                 </div>
                 <div class="bottom clearfix" v-else>
-                  <el-button @click="$router.push('/Login')"
-                    >登录后查看</el-button
-                  >
+                  <el-button @click="$router.push('/Login')">登录后查看</el-button>
                 </div>
               </div>
             </el-card>
@@ -153,45 +89,23 @@
       <el-row>
         <el-col :span="4"><div class="grid-content"></div></el-col>
         <el-col :span="16">
-          <el-col
-            :span="6"
-            v-for="(item, i) in Shop_list[3]"
-            :key="i"
-            class="col-item"
-          >
+          <el-col :span="6" v-for="(item, i) in Shop_list[3]" :key="i" class="col-item">
             <el-card :body-style="{ padding: '0px' }">
               <img :src="item.img" class="image2" />
               <div style="padding: 14px">
-                <span>{{ item.name }}</span
-                ><br />
-                <span :style="{ color: '#b0b0b0', 'font-size': '12px' }">{{
-                  item.introduction
-                }}</span
-                ><br />
-                <span :style="{ color: 'red', size: '10px' }"
-                  >{{ item.price }}起</span
-                >
+                <span>{{ item.name }}</span>
+                <br />
+                <span :style="{ color: '#b0b0b0', 'font-size': '12px' }">{{ item.introduction }}</span>
+                <br />
+                <span :style="{ color: 'red', size: '10px' }">{{ item.price }}起</span>
                 <div class="bottom clearfix" v-if="$store.state.count_exist">
-                  <el-button
-                    icon="el-icon-circle-plus"
-                    class="button"
-                    @click="
-                      pushCar(item, item.id, item.name, item.img, item.price),
-                        open()
-                    "
-                    >购物车</el-button
-                  >
-                  <el-button
-                    icon="el-icon-s-goods"
-                    class="button"
-                    @click="Submit_Orders_fromShop(item)"
-                    >购买</el-button
-                  >
+                  <el-button icon="el-icon-circle-plus" class="button" @click="pushCar(item, item.id, item.name, item.img, item.price), open()">
+                    购物车
+                  </el-button>
+                  <el-button icon="el-icon-s-goods" class="button" @click="Submit_Orders_fromShop(item)">购买</el-button>
                 </div>
                 <div class="bottom clearfix" v-else>
-                  <el-button @click="$router.push('/Login')"
-                    >登录后查看</el-button
-                  >
+                  <el-button @click="$router.push('/Login')">登录后查看</el-button>
                 </div>
               </div>
             </el-card>
@@ -203,56 +117,54 @@
   </el-tabs>
 </template>
 <script>
-import Bus from "../assets/js/Bus";
+import Bus from '../assets/js/Bus'
 export default {
-  name: "commodity",
+  name: 'commodity',
   data() {
     return {
-      activeName: "first",
-      Shopping_Car: this.$store.state.Shopping_Car,
-     
-
-    };
+      activeName: 'first',
+      Shopping_Car: this.$store.state.Shopping_Car
+    }
   },
-  props: ["Shop_list", "navName"],
+  props: ['Shop_list', 'navName'],
   created() {
-    this.$store.dispatch("getShop"); //加载商品
+    this.$store.dispatch('getShop') //加载商品
   },
   methods: {
     open() {
-      this.$confirm("加入购物车成功", "提示", {
-        confirmButtonText: "查看购物车",
-        cancelButtonText: "继续添加",
-        type: "warning",
+      this.$confirm('加入购物车成功', '提示', {
+        confirmButtonText: '查看购物车',
+        cancelButtonText: '继续添加',
+        type: 'warning'
       })
         .then(() => {
-          this.$router.push("/Shopping_Car");
+          this.$router.push('/Shopping_Car')
         })
-        .catch(() => {});
+        .catch(() => {})
     },
     pushCar(item, id, name, img, price, number = 1) {
       //因为 商品组件缓存了，所以this.$store.state.Shopping_Car清空后商品组件的数据不会更新
-      this.$store.commit("pushCar", { item, id, name, img, price, number });
+      this.$store.commit('pushCar', { item, id, name, img, price, number })
     },
     Submit_Orders_fromShop(item) {
-      item.number = 1;
+      item.number = 1
       // this.$store.commit('Submit_Orders_fromShop',item)
-      this.$router.push("/orderDetails");
-      this.$nextTick(()=>{
+      this.$router.push('/orderDetails')
+      this.$nextTick(() => {
         setTimeout(() => {
-        Bus.$emit("submitOrder", {item,isCar:false});
-      }, 200);
+          Bus.$emit('submitOrder', { item, isCar: false })
+        }, 200)
       })
-    },
+    }
   },
   deactivated() {
     setTimeout(() => {
-      Bus.$off("submitOrder");
-    }, 2000);
-  },
-};
+      Bus.$off('submitOrder')
+    }, 2000)
+  }
+}
 </script>
-<style >
+<style>
 .el-tabs__nav-scroll {
   margin-left: 552px !important;
 }
@@ -301,7 +213,7 @@ export default {
 .clearfix:before,
 .clearfix:after {
   display: table;
-  content: "";
+  content: '';
 }
 
 .clearfix:after {

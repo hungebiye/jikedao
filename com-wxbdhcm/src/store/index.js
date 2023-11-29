@@ -5,11 +5,10 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-
-    count_exist: false,   //检测是否登录
-    isAdmin: false,   //判定是否为管理员
-    account: [],     // 账户注册
-    user: null,//当前用户
+    count_exist: false, //检测是否登录
+    isAdmin: false, //判定是否为管理员
+    account: [], // 账户注册
+    user: null, //当前用户
     //商品列表
     shop_list: [],
     //购物车管理
@@ -17,7 +16,7 @@ export default new Vuex.Store({
     //订单管理
     Order: [],
     // 所有用户订单
-    orderList: [],
+    orderList: []
   },
 
   getters: {
@@ -27,7 +26,6 @@ export default new Vuex.Store({
     account(state) {
       return state.account
     }
-
   },
   mutations: {
     adduser(state, playload) {
@@ -41,17 +39,17 @@ export default new Vuex.Store({
           name: playload.name,
           price: playload.price,
           number: playload.number,
-          check: true,
-        });
+          check: true
+        })
       } else {
-        let i = 0;
-        var check = false;
+        let i = 0
+        var check = false
         while (i < state.Shopping_Car.length) {
           if (playload.item.id == state.Shopping_Car[i].id) {
-            state.Shopping_Car[i].number++;
-            check = true;
+            state.Shopping_Car[i].number++
+            check = true
           }
-          i++;
+          i++
         }
         if (check == false) {
           state.Shopping_Car.push({
@@ -60,8 +58,8 @@ export default new Vuex.Store({
             name: playload.name,
             price: playload.price,
             number: playload.number,
-            check: true,
-          });
+            check: true
+          })
         }
       }
     },
@@ -85,42 +83,42 @@ export default new Vuex.Store({
     //获取商品数据
     getShop(state, playload) {
       state.shop_list = playload
-
     },
     // 获取所有用户的订单
     getOrderList(state, playload) {
       state.orderList = playload
-
     }
-
   },
   actions: {
     //异步接收商品数据
     getShop(context) {
       new Promise((resolve, reject) => {
-        axios.get("/api/data.json").then(res => {
-          resolve(res.data)
-          context.commit('getShop', [res.data.tv, res.data.around, res.data.computer, res.data.parts, res.data.watch])
-        }).catch((err) => {
-          console.log("store请求接口失败" + err)
-        })
+        axios
+          .get('/api/data.json')
+          .then((res) => {
+            resolve(res.data)
+            context.commit('getShop', [res.data.tv, res.data.around, res.data.computer, res.data.parts, res.data.watch])
+          })
+          .catch((err) => {
+            console.log('store请求接口失败' + err)
+          })
       })
     },
     getUsers(context) {
-      axios.get('/api/users').then(
-        res => {
+      axios
+        .get('/api/users')
+        .then((res) => {
           context.commit('getUsers', [...res.data])
-        }
-      ).catch((err) => { console.log(err) })
-
+        })
+        .catch((err) => {
+          console.log(err)
+        })
     },
     getOrderList(context) {
-      axios.get('/api/orderList').then(res => {
+      axios.get('/api/orderList').then((res) => {
         context.commit('getOrderList', [...res.data])
       })
-
     }
   },
-  modules: {
-  }
+  modules: {}
 })

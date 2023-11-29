@@ -50,10 +50,7 @@ export default {
         window.alert('你已经登录过')
       } else {
         for (let i in this.$store.state.account) {
-          if (
-            this.user === this.$store.state.account[i].Username &&
-            this.pass === this.$store.state.account[i].Password
-          ) {
+          if (this.user === this.$store.state.account[i].Username && this.pass === this.$store.state.account[i].Password) {
             window.alert('登录成功')
             this.$store.state.user = this.$store.state.account[i]
             this.$store.state.count_exist = true
@@ -63,13 +60,6 @@ export default {
             this.axios.get(url).then((res) => {
               this.$store.state.user.userAddressList = res.data
             })
-            // let userAddress = this.$store.state.user.userAddress.split("&")
-            // this.$store.state.user.userAderss.push({
-            //   name:  this.$store.state.user.Username,
-            //   phone: this.$store.state.user.userPhone,
-            //   address: userAddress[0],
-            //   detailedAddress: userAddress[1]
-            // })
             check = true
             if (this.user === 'admin') {
               this.$store.state.isAdmin = true

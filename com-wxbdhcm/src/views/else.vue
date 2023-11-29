@@ -7,9 +7,6 @@
 </template>
 <script>
 export default {
-  data() {
-    return {}
-  },
   methods: {
     pushLogin() {
       this.$router.push('/Login')

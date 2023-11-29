@@ -56,35 +56,7 @@
   </div>
 </template>
 <script>
-// import CommodityList from "../components/commodityList.vue";
 export default {
-  data() {
-    return {}
-  },
-  methods: {
-    // deleteRow(index, rows) {
-    //   rows.splice(index, 1);
-    // },
-  },
-  // deactivated(){
-  //     console.log('---deactivated')
-  // },
-  // activated(){
-  //     console.log('---activated')
-  // },
-  components: {
-    // CommodityList,
-  },
-  computed: {
-    // countTotalPrice() {
-    //   var sum = 0;
-    //   for (let i in this.$store.state.Order) {
-    //     sum +=
-    //       this.$store.state.Order[i].price * this.$store.state.Order[i].number;
-    //   }
-    //   return sum;
-    // },
-  }
 }
 </script>
 <style scoped></style>

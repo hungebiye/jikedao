@@ -24,7 +24,6 @@
 </template>
 
 <script>
-// @ is an alias to /src
 //发送表单数据使用qs
 import qs from 'qs'
 export default {
