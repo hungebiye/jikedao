@@ -6,10 +6,6 @@ import router from "../router"
 axios.defaults.withCredentials=true
 axios.defaults.crossDomain=true
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
-// Full config:  https://github.com/axios/axios#request-config
-// axios.defaults.baseURL = 'http://localhost:8080/#/';
-// axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
-// axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
 let config = {
   // baseURL: process.env.baseURL || process.env.apiUrl || ""
@@ -21,14 +17,12 @@ const _axios = axios.create(config);
 
 _axios.interceptors.request.use(
   config => {
-    // Do something before request is sent
     // if(!sessionStorage.getItem('logined')){
     //   router.push('/login')
     // }
     return config;
   },
   error => {
-    // Do something with request error
     return Promise.reject(error);
   }
 );

@@ -104,14 +104,17 @@ export default {
 }
 .left ul {
   margin: 0;
-  padding-top: 14px;
+  padding-top: 15px;
   padding-left: 0;
+  background: #817a7a;
+  padding-bottom: 15px;
 }
 .left li {
   list-style: none;
   height: 60px;
   text-align: center;
   line-height: 60px;
+  color: #e9cece;
 }
 .active {
   background: #ff6700;

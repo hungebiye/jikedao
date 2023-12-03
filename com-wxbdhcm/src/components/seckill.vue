@@ -7,7 +7,7 @@
         <img style="width:6vw;height:6vw" src="../assets/img/seckill.jpg" />
         <br />
         <div :style="{ color: '#b0b0b0', 'font-size': '1.2vw', 'padding-top': '1vw', height: '1.5vw' }">距离{{ status }}还有</div>
-        <div class="clock">
+        <div class="clock" style="height: auto;">
           <span>{{ restHours }}小时</span>
           <span>{{ restMinutes }}分</span>
           <span>{{ restSeconds }}秒</span>
@@ -21,7 +21,7 @@
       >
         <el-card :body-style="{ padding: '0px' }">
           <img :src="item.img" class="seckill-img" />
-          <div>
+          <div style="height: auto;">
             <span>{{ item.name }}</span>
             <br />
             <span :style="{ color: '#b0b0b0', 'font-size': '13px' }">{{ item.introduction }}</span>

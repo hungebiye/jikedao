@@ -37,6 +37,6 @@ app.get('/',function (req,res) {
     res.send(str +str2);  //服务器响应请求
 });
 connection.end();
-app.listen(8001,function () {    //监听3000端口
+app.listen(8001,function () {    //监听8001端口
     console.log('Server running at 8001 port');
 });
