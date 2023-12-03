@@ -19,63 +19,56 @@ app.use('/index', index)
 
 app.all('*', function (req, res, next) {
   //其中*表示允许所有域可跨
-  res.header('Access-Control-Allow-Origin', req.headers.origin)
-  // res.header("Access-Control-Allow-Origin", '*');
+  res.header("Access-Control-Allow-Origin", '*');
   res.header('Access-Control-Allow-Headers', 'Content-Type,Content-Length, Authorization, Accept,X-Requested-With')
   res.header('Access-Control-Allow-Methods', 'PUT,POST,GET,DELETE,OPTIONS')
   res.header('Access-Control-Allow-Credentials', 'true')
   res.header('X-Powered-By', ' 3.2.1')
-  // res.header('Content-Type', 'application/x-www-form-urlencoded; charset=utf-8');
-  // res.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT, OPTIONS, DELETE");
   next()
 })
 // view engine setup
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'jade')
-
 const bodyParser = require('body-parser')
-//对body-parser进行配置
+
+// 使用中间件
+// 对body-parser进行配置
 app.use(bodyParser.urlencoded({ extended: true }))
-
+// 日志
 app.use(logger('dev'))
+// json格式解析
 app.use(express.json())
-//post请求 res.body
+// url加密
 app.use(express.urlencoded({ extended: false }))
-
+// cookie解析
 app.use(cookieParser())
-//更改为静态资源
+// 加载public文件夹中的静态资源
 app.use(express.static(path.join(__dirname, 'public')))
 
-// app.use('/', indexRouter);
+// 获取 用户信息
 app.use('/users', usersRouter)
-
-//接收post传递数据，存入mysql
-app.use('/post', postRouter)
-//接收 头像数据
-app.use('/avatar', avatar)
-//接收 用户新创地址数据
-app.use('/postAddress', postAddressRoute)
-//获取所有用户地址
+// 获取所有用户地址
 app.use('/address', addressRoute)
-//获取所有订单数据
+// 获取所有订单数据
 app.use('/orderList', orderListRoute)
+// 接收post传递数据，存入mysql
+app.use('/post', postRouter)
+// 接收 头像数据
+app.use('/avatar', avatar)
+// 接收 用户新创地址数据
+app.use('/postAddress', postAddressRoute)
 // 删除用户
 app.use('/deleteSql', deleteRouter)
-//提交订单
+// 提交订单
 app.use('/postOrder', postOrder)
 
 app.get('/', (req, res) => {
-  res.send('cccccssc')
-})
-
-app.get('/account', (req, res) => {
-  res.send(account)
+  res.send('nothing')
 })
 app.get('/err', () => {
   throw new Error('not find')
 })
 app.get('/notFind', (req, res) => {
-  // res.status(404).send('not find')
   res.sendStatus(404, 'application/json', '{"error":"resource notsss found"}')
 })
 app.get('/file-does-not-exist', function (req, res, next) {

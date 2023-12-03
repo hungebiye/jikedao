@@ -21,7 +21,6 @@
 <script>
 import Swiper from '../components/swiper.vue'
 import Nav from '../components/nav.vue'
-import { mixin } from '../assets/js/mixin'
 import focus from '../assets/js/diretives'
 import RightFixed from '../components/fixed-right.vue'
 import Footer from '../components/footer.vue'
@@ -40,7 +39,6 @@ export default {
       reg_show: false
     }
   },
-  mixins: [mixin],
   created() {
     this.$store.dispatch('getUsers') //已注册用户
     this.$store.dispatch('getShop')
@@ -48,56 +46,10 @@ export default {
   },
   mounted() {
     this.$store.commit('hasUser')
-    // this.axios.get('/page?currentPage=1&pageSize=4').then(res=>{
-    //   console.log(res)
-    // })
   },
-  methods: {
-    getAxois() {
-      //节流
-      if (this.flag) {
-        this.flag = false
-        this.axios({
-          method: 'get',
-          url: 'data.json'
-        }).then((res) => {
-          console.log(res)
-        })
-        setTimeout(() => {
-          this.flag = true
-        }, 2000)
-      }
-      //防抖
-      clearTimeout(this.timer)
-      this.timer = setTimeout(() => {
-        this.axios({
-          method: 'get',
-          url: 'data.json'
-        }).then((res) => {
-          console.log('防抖实现')
-        })
-      }, 1000)
-      // console.log(this.$refs.testRef)
-      // this.$nextTick(()=>{
-      //   let dom = document.getElementById("h1").innerHTML
-      //   console.log(this.$refs.testRef)
-      //   console.log(dom)
-
-      // })
-    },
-    axoisGet(id) {
-      let get = (url) => {
-        return (params) => {
-          return this.axios.get(url, { params }).then((res) => {
-            return res.data
-          })
-        }
-      }
-      let getdetial = get('/api/axios.json')
-      getdetial({ id: id })
-    }
-  },
+  methods: {},
   directives: {
+    // 自定义vue指令，没用到
     focus: focus
   },
   components: {

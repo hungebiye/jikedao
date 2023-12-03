@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import Vuex, { mapState } from 'vuex'
+import Vuex from 'vuex'
 import axios from 'axios'
 Vue.use(Vuex)
 

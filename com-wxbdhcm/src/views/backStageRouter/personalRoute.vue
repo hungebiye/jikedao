@@ -11,9 +11,7 @@
         <span class="user-info-id">{{ $store.state.user.userPhone }}</span>
       </div>
       <div class="upload">
-        <el-upload class="avatar-uploader" action="/api/avatar"
-          :show-file-list="false" :on-success="handleAvatarSuccess"
-          :before-upload="beforeAvatarUpload">
+        <el-upload class="avatar-uploader" action="/api/avatar" :show-file-list="false" :on-success="handleAvatarSuccess" :before-upload="beforeAvatarUpload">
           <span>点击更换头像:</span>
           <i class="el-icon-plus avatar-uploader-icon"></i>
         </el-upload>
@@ -22,8 +20,7 @@
     <div class="userAddress">
       <div style="font-weight: 700; text-align: left">收货地址管理</div>
       <br />
-      <el-popover placement="right" width="400" trigger="click"
-        v-model="visible">
+      <el-popover placement="right" width="400" trigger="click" v-model="visible">
         <div class="chooseAddress">
           收货人：
           <br />
@@ -35,16 +32,14 @@
           <br />
           所在地区：
           <br />
-          <el-cascader style="width: 600px" :options="options"
-            v-model="selectedOptions" @change="handleChange"></el-cascader>
+          <el-cascader style="width: 600px" :options="options" v-model="selectedOptions" @change="handleChange"></el-cascader>
           详细地址:
           <br />
           <el-input v-model="detailedAddress"></el-input>
           <br />
           <el-button @click="newAddress()">保存地址</el-button>
         </div>
-        <el-button style="margin-right:900px"
-          slot="reference">新创收货地址</el-button>
+        <el-button style="margin-right:900px" slot="reference">新创收货地址</el-button>
       </el-popover>
 
       <div class="allCard">

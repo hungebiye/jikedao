@@ -13,10 +13,9 @@
             <el-table-column prop="Password" label="密码"></el-table-column>
             <el-table-column label="操作">
               <template slot-scope="scope">
-                <el-button @click.native.prevent="
-                    deleteRow(scope.$index, user_data, scope.row.Username)
-                  " type="primary" icon="el-icon-delete"
-                  size="small">移除</el-button>
+                <el-button @click.native.prevent="deleteRow(scope.$index, user_data, scope.row.Username)" type="primary" icon="el-icon-delete" size="small">
+                  移除
+                </el-button>
               </template>
             </el-table-column>
           </el-table>
@@ -32,32 +31,32 @@
   </div>
 </template>
 <script>
-import qs from "qs";
-import elseView from "../else.vue";
+import qs from 'qs'
+import elseView from '../else.vue'
 export default {
   components: { elseView },
   data() {
     return {
-      user_data: this.$store.state.account,
-    };
+      user_data: this.$store.state.account
+    }
   },
   methods: {
     deleteRow(index, rows, username) {
       // 删除行
-      rows.splice(index, 1);
+      rows.splice(index, 1)
       let user = {
-        username: username,
-      };
-      let parms = qs.stringify(user);
-      console.log(parms);
-      this.axios.post("/api/deleteSql", parms).then((res) => {
-        console.log(res);
-      });
-    },
-  },
-};
+        username: username
+      }
+      let parms = qs.stringify(user)
+      console.log(parms)
+      this.axios.post('/api/deleteSql', parms).then((res) => {
+        console.log(res)
+      })
+    }
+  }
+}
 </script>
-<style >
+<style>
 .userRoute {
   width: 100%;
   height: 100%;

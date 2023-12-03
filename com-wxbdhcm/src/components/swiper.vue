@@ -57,7 +57,7 @@ export default {
   },
   created() {
     new Promise((resolve, reject) => {
-      this.axios.get('data.json').then((res) => {
+      this.axios.get('/api/data.json').then((res) => {
         //"http://localhost:3000/db"
         this.right_tv.push(res.data.tv)
         this.right_tv.push(res.data.computer)

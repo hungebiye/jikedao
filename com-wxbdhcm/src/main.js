@@ -26,16 +26,3 @@ router.beforeEach((to, from, next) => {
     next()
   } 
 })
-Vue.mixin({
-  data() {
-    return {
-      mixinName:'mixin',
-      globalmixin:'global'
-    }
-  },
-  methods:{
-    mixinMethods(){
-      console.log("its mixin methods")
-    }
-  }
-})

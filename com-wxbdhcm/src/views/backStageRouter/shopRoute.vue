@@ -9,8 +9,7 @@
         <el-table :data="shopData" border style="width: 100%" max-height="500">
           <el-table-column label="商品">
             <template slot-scope="scope">
-              <img :src="scope.row.img"
-                :style="{ height: '60px', widith: '60px' }" />
+              <img :src="scope.row.img" :style="{ height: '60px', widith: '60px' }" />
             </template>
           </el-table-column>
           <el-table-column prop="id" label="订单编号"></el-table-column>
@@ -24,9 +23,7 @@
 
           <el-table-column label="操作">
             <template slot-scope="scope">
-              <el-button
-                @click.native.prevent="deleteRow(scope.$index, shop_data)"
-                type="primary" icon="el-icon-delete" size="small">移除</el-button>
+              <el-button @click.native.prevent="deleteRow(scope.$index, shop_data)" type="primary" icon="el-icon-delete" size="small">移除</el-button>
             </template>
           </el-table-column>
         </el-table>

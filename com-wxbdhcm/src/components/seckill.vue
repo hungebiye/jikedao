@@ -59,7 +59,7 @@ export default {
     }
   },
   created() {
-    this.axios.get('data.json').then((res) => {
+    this.axios.get('/api/data.json').then((res) => {
       this.seckillCommodity.push(res.data.computer[Math.floor(Math.random() * 8)])
       this.seckillCommodity.push(res.data.watch[Math.floor(Math.random() * 8)])
       this.seckillCommodity.push(res.data.tv[Math.floor(Math.random() * 8)])

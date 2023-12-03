@@ -17,9 +17,6 @@ const _axios = axios.create(config);
 
 _axios.interceptors.request.use(
   config => {
-    // if(!sessionStorage.getItem('logined')){
-    //   router.push('/login')
-    // }
     return config;
   },
   error => {

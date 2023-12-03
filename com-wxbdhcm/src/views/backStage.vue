@@ -42,8 +42,7 @@ export default {
     deleteRow(index, rows) {
       rows.splice(index, 1)
     }
-  },
-  components: {}
+  }
 }
 </script>
 <style>
