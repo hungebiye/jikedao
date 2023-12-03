@@ -1,7 +1,7 @@
 <template>
   <div id="shop">
     <Commodity :Shop_list="$store.state.shop_list" :navName="navName"></Commodity>
-    <Commodity :Shop_list="$store.getters.Shop_list2" :navName="navName2"></Commodity>
+    <!-- <Commodity :Shop_list="$store.getters.Shop_list2" :navName="navName2"></Commodity> -->
   </div>
 </template>
 <script>
@@ -25,13 +25,6 @@ export default {
 }
 </script>
 <style>
-/* .el-tabs__nav-scroll{
-  margin-left:500px  !important;
-} */
-.el-tabs__nav-scroll {
-  margin-left: 552px !important;
-}
-
 .col-item {
   height: 260px;
   margin-bottom: 5px;

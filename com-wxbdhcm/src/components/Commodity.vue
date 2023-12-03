@@ -2,116 +2,210 @@
   <el-tabs v-model="activeName">
     <el-tab-pane :label="navName[0]" name="first">
       <el-row>
-        <el-col :span="4"><div class="grid-content"></div></el-col>
-        <el-col :span="16">
-          <el-col :span="6" v-for="(item, i) in Shop_list[0]" :key="i" class="col-item">
+        <el-col :span="1"><div class="grid-content"></div></el-col>
+        <el-col :span="22" class="aaa">
+          <el-col
+            :span="5"
+            v-for="(item, i) in Shop_list[0]"
+            :key="i"
+            class="col-item"
+          >
             <el-card :body-style="{ padding: '0px' }">
               <img :src="'https:' + item.img" class="image" />
               <div style="padding: 14px">
                 <span>{{ item.name }}</span>
                 <br />
-                <span :style="{ color: 'red', size: '10px' }">{{ item.price }}起</span>
+                <span :style="{ color: 'red', size: '10px' }">
+                  {{ item.price }}起
+                </span>
                 <div class="bottom clearfix" v-if="$store.state.count_exist">
-                  <el-button icon="el-icon-circle-plus" class="button" @click="pushCar(item, item.id, item.name, item.img, item.price), open()">
+                  <el-button
+                    icon="el-icon-circle-plus"
+                    class="button"
+                    @click="
+                      pushCar(item, item.id, item.name, item.img, item.price),
+                        open()
+                    "
+                  >
                     购物车
                   </el-button>
-                  <el-button icon="el-icon-s-goods" class="button" @click="Submit_Orders_fromShop(item)">购买</el-button>
+                  <el-button
+                    icon="el-icon-s-goods"
+                    class="button"
+                    @click="Submit_Orders_fromShop(item)"
+                  >
+                    购买
+                  </el-button>
                 </div>
                 <div class="bottom clearfix" v-else>
-                  <el-button @click="$router.push('/Login')">登录后查看</el-button>
+                  <el-button @click="$router.push('/Login')">
+                    登录后查看
+                  </el-button>
                 </div>
               </div>
             </el-card>
           </el-col>
         </el-col>
-        <el-col :span="4"></el-col>
+        <el-col :span="1"></el-col>
       </el-row>
     </el-tab-pane>
     <el-tab-pane :label="navName[1]" name="second">
       <el-row>
-        <el-col :span="4"><div class="grid-content"></div></el-col>
-        <el-col :span="16">
-          <el-col :span="6" v-for="(item, i) in Shop_list[1]" :key="i" class="col-item">
+        <el-col :span="1"><div class="grid-content"></div></el-col>
+        <el-col :span="22" class="aaa">
+          <el-col
+            :span="5"
+            v-for="(item, i) in Shop_list[1]"
+            :key="i"
+            class="col-item"
+          >
             <el-card :body-style="{ padding: '0px' }">
               <img :src="'https:' + item.img" class="image2" />
               <div style="padding: 14px">
                 <span>{{ item.name }}</span>
                 <br />
-                <span :style="{ color: '#b0b0b0', 'font-size': '12px' }">{{ item.introduction }}</span>
+                <span :style="{ color: '#b0b0b0', 'font-size': '12px' }">
+                  {{ item.introduction }}
+                </span>
                 <br />
-                <span :style="{ color: 'red', size: '10px' }">{{ item.price }}起</span>
+                <span :style="{ color: 'red', size: '10px' }">
+                  {{ item.price }}起
+                </span>
                 <div class="bottom clearfix" v-if="$store.state.count_exist">
-                  <el-button icon="el-icon-circle-plus" class="button" @click="pushCar(item, item.id, item.name, item.img, item.price), open()">
+                  <el-button
+                    icon="el-icon-circle-plus"
+                    class="button"
+                    @click="
+                      pushCar(item, item.id, item.name, item.img, item.price),
+                        open()
+                    "
+                  >
                     购物车
                   </el-button>
-                  <el-button icon="el-icon-s-goods" class="button" @click="Submit_Orders_fromShop(item)">购买</el-button>
+                  <el-button
+                    icon="el-icon-s-goods"
+                    class="button"
+                    @click="Submit_Orders_fromShop(item)"
+                  >
+                    购买
+                  </el-button>
                 </div>
                 <div class="bottom clearfix" v-else>
-                  <el-button @click="$router.push('/Login')">登录后查看</el-button>
+                  <el-button @click="$router.push('/Login')">
+                    登录后查看
+                  </el-button>
                 </div>
               </div>
             </el-card>
           </el-col>
         </el-col>
-        <el-col :span="4"></el-col>
+        <el-col :span="1"></el-col>
       </el-row>
     </el-tab-pane>
     <el-tab-pane :label="navName[2]" name="third">
       <el-row>
-        <el-col :span="4"><div class="grid-content"></div></el-col>
-        <el-col :span="16">
-          <el-col :span="6" v-for="(item, i) in Shop_list[2]" :key="i" class="col-item">
+        <el-col :span="1"><div class="grid-content"></div></el-col>
+        <el-col :span="22" class="aaa">
+          <el-col
+            :span="5"
+            v-for="(item, i) in Shop_list[2]"
+            :key="i"
+            class="col-item"
+          >
             <el-card :body-style="{ padding: '0px' }">
               <img :src="item.img" class="image2" />
               <div style="padding: 14px">
                 <span>{{ item.name }}</span>
                 <br />
-                <span :style="{ color: '#b0b0b0', 'font-size': '12px' }">{{ item.introduction }}</span>
+                <span :style="{ color: '#b0b0b0', 'font-size': '12px' }">
+                  {{ item.introduction }}
+                </span>
                 <br />
-                <span :style="{ color: 'red', size: '10px' }">{{ item.price }}起</span>
+                <span :style="{ color: 'red', size: '10px' }">
+                  {{ item.price }}起
+                </span>
                 <div class="bottom clearfix" v-if="$store.state.count_exist">
-                  <el-button icon="el-icon-circle-plus" class="button" @click="pushCar(item, item.id, item.name, item.img, item.price), open()">
+                  <el-button
+                    icon="el-icon-circle-plus"
+                    class="button"
+                    @click="
+                      pushCar(item, item.id, item.name, item.img, item.price),
+                        open()
+                    "
+                  >
                     购物车
                   </el-button>
-                  <el-button icon="el-icon-s-goods" class="button" @click="Submit_Orders_fromShop(item)">购买</el-button>
+                  <el-button
+                    icon="el-icon-s-goods"
+                    class="button"
+                    @click="Submit_Orders_fromShop(item)"
+                  >
+                    购买
+                  </el-button>
                 </div>
                 <div class="bottom clearfix" v-else>
-                  <el-button @click="$router.push('/Login')">登录后查看</el-button>
+                  <el-button @click="$router.push('/Login')">
+                    登录后查看
+                  </el-button>
                 </div>
               </div>
             </el-card>
           </el-col>
         </el-col>
-        <el-col :span="4"></el-col>
+        <el-col :span="1"></el-col>
       </el-row>
     </el-tab-pane>
     <el-tab-pane :label="navName[3]" name="fourth">
       <el-row>
-        <el-col :span="4"><div class="grid-content"></div></el-col>
-        <el-col :span="16">
-          <el-col :span="6" v-for="(item, i) in Shop_list[3]" :key="i" class="col-item">
+        <el-col :span="1"><div class="grid-content"></div></el-col>
+        <el-col :span="22" class="aaa">
+          <el-col
+            :span="5"
+            v-for="(item, i) in Shop_list[3]"
+            :key="i"
+            class="col-item"
+          >
             <el-card :body-style="{ padding: '0px' }">
               <img :src="item.img" class="image2" />
               <div style="padding: 14px">
                 <span>{{ item.name }}</span>
                 <br />
-                <span :style="{ color: '#b0b0b0', 'font-size': '12px' }">{{ item.introduction }}</span>
+                <span :style="{ color: '#b0b0b0', 'font-size': '12px' }">
+                  {{ item.introduction }}
+                </span>
                 <br />
-                <span :style="{ color: 'red', size: '10px' }">{{ item.price }}起</span>
+                <span :style="{ color: 'red', size: '10px' }">
+                  {{ item.price }}起
+                </span>
                 <div class="bottom clearfix" v-if="$store.state.count_exist">
-                  <el-button icon="el-icon-circle-plus" class="button" @click="pushCar(item, item.id, item.name, item.img, item.price), open()">
+                  <el-button
+                    icon="el-icon-circle-plus"
+                    class="button"
+                    @click="
+                      pushCar(item, item.id, item.name, item.img, item.price),
+                        open()
+                    "
+                  >
                     购物车
                   </el-button>
-                  <el-button icon="el-icon-s-goods" class="button" @click="Submit_Orders_fromShop(item)">购买</el-button>
+                  <el-button
+                    icon="el-icon-s-goods"
+                    class="button"
+                    @click="Submit_Orders_fromShop(item)"
+                  >
+                    购买
+                  </el-button>
                 </div>
                 <div class="bottom clearfix" v-else>
-                  <el-button @click="$router.push('/Login')">登录后查看</el-button>
+                  <el-button @click="$router.push('/Login')">
+                    登录后查看
+                  </el-button>
                 </div>
               </div>
             </el-card>
           </el-col>
         </el-col>
-        <el-col :span="4"></el-col>
+        <el-col :span="1"></el-col>
       </el-row>
     </el-tab-pane>
   </el-tabs>
@@ -165,12 +259,22 @@ export default {
 }
 </script>
 <style>
+.el-tabs__content {
+  overflow: visible;
+}
+.aaa {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+}
 .el-tabs__nav-scroll {
-  margin-left: 552px !important;
+  margin: auto;
+  width: fit-content;
 }
 .col-item {
   height: 260px;
-  margin-bottom: 5px;
+  margin-bottom: 40px !important;
   cursor: pointer; /*鼠标变成手指样式*/
   transition: all 0.5s; /*所有属性变化在0.6秒内执行动画*/
 }
@@ -190,7 +294,7 @@ export default {
   padding: 0;
   height: 35px;
   display: inline-block;
-  width: 65px;
+  width: 75px;
 }
 .el-button {
   border-radius: 30 0 0 30;

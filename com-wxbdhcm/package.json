@@ -51,7 +51,9 @@
     "rules": {
       "no-unused-vars": "off",
       "no-tabs": "off",
-      "no-mixed-spaces-and-tabs": "off"
+      "no-mixed-spaces-and-tabs": "off",
+      "no-debugger": "off",
+      "no-console": "off"
     }
   },
   "browserslist": [

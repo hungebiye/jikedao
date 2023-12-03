@@ -23,7 +23,7 @@
 
           <el-table-column label="操作">
             <template slot-scope="scope">
-              <el-button @click.native.prevent="deleteRow(scope.$index, shop_data)" type="primary" icon="el-icon-delete" size="small">移除</el-button>
+              <el-button @click.native.prevent="deleteRow(scope.$index, shopData)" type="primary" icon="el-icon-delete" size="small">移除</el-button>
             </template>
           </el-table-column>
         </el-table>
@@ -41,6 +41,7 @@ export default {
   methods: {
     deleteRow(index, rows) {
       // 删除行
+      debugger
       rows.splice(index, 1)
     }
   },

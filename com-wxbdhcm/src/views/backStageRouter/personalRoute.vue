@@ -6,21 +6,31 @@
         <el-avatar class="user-info-img" :src="imageUrl"></el-avatar>
       </div>
       <div class="user-info-Id">
-        <span class="user-info-name">{{ $store.state.user.Username }}</span>
-        <br />
-        <span class="user-info-id">{{ $store.state.user.userPhone }}</span>
+        <span class="user-info-name">用户名： {{ $store.state.user.Username }}</span>
       </div>
       <div class="upload">
-        <el-upload class="avatar-uploader" action="/api/avatar" :show-file-list="false" :on-success="handleAvatarSuccess" :before-upload="beforeAvatarUpload">
-          <span>点击更换头像:</span>
-          <i class="el-icon-plus avatar-uploader-icon"></i>
+        <el-upload
+          class="avatar-uploader"
+          action="/api/avatar"
+          :show-file-list="false"
+          :on-success="handleAvatarSuccess"
+          :before-upload="beforeAvatarUpload"
+        >
+          <el-button>
+            更换头像
+          </el-button>
         </el-upload>
       </div>
     </div>
     <div class="userAddress">
       <div style="font-weight: 700; text-align: left">收货地址管理</div>
       <br />
-      <el-popover placement="right" width="400" trigger="click" v-model="visible">
+      <el-popover
+        placement="right"
+        width="400"
+        trigger="click"
+        v-model="visible"
+      >
         <div class="chooseAddress">
           收货人：
           <br />
@@ -32,14 +42,21 @@
           <br />
           所在地区：
           <br />
-          <el-cascader style="width: 600px" :options="options" v-model="selectedOptions" @change="handleChange"></el-cascader>
+          <el-cascader
+            style="width: 600px"
+            :options="options"
+            v-model="selectedOptions"
+            @change="handleChange"
+          ></el-cascader>
           详细地址:
           <br />
           <el-input v-model="detailedAddress"></el-input>
           <br />
           <el-button @click="newAddress()">保存地址</el-button>
         </div>
-        <el-button style="margin-right:900px" slot="reference">新创收货地址</el-button>
+        <el-button style="margin-right:900px" slot="reference">
+          新创收货地址
+        </el-button>
       </el-popover>
 
       <div class="allCard">
@@ -73,7 +90,6 @@ export default {
     return {
       userName: 'qwj',
       userId: '123',
-      imageUrl: 'https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png',
       options: regionData,
       selectedOptions: [],
       addtions: {},
@@ -82,6 +98,15 @@ export default {
       rgName: '',
       rgPhone: '',
       receivingAddress: this.$store.state.user.userAddressList
+    }
+  },
+  computed: {
+    imageUrl() {
+      if (this.$store.state.user) {
+        return this.$store.state.user.avatar
+      } else {
+        return 'https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png'
+      }
     }
   },
   methods: {
@@ -96,10 +121,35 @@ export default {
       // console.log(this.addtions.names)
       // console.log(this.addtions)
     },
-
+    getBase64(file) {
+      return new Promise(function(resolve, reject) {
+        let reader = new FileReader()
+        let imgResult = ''
+        reader.readAsDataURL(file)
+        reader.onload = function() {
+          imgResult = reader.result
+        }
+        reader.onerror = function(error) {
+          reject(error)
+        }
+        reader.onloadend = function() {
+          resolve(imgResult)
+        }
+      })
+    },
     handleAvatarSuccess(res, file) {
-      this.imageUrl = URL.createObjectURL(file.raw)
-      this.axios.post('/api/avatar', qs.stringify({ avatar: this.imageUrl, userName: this.$store.state.user.Username })).then()
+      this.getBase64(file.raw).then((res) => {
+        this.$store.state.user.avatar = res
+        this.axios
+        .post(
+          '/api/avatar',
+          qs.stringify({
+            avatar: res,
+            userName: this.$store.state.user.Username
+          })
+        )
+        .then()
+      })
     },
     beforeAvatarUpload(file) {
       const isJPG = file.type === 'image/jpeg'
@@ -127,7 +177,8 @@ export default {
         this.$store.state.user.userAddressList.push(address)
         // this.$store.state.user.userAderss = add
         this.visible = false
-        this.rgName = this.rgPhone = this.selectedOptions = this.detailedAddress = ''
+        this.rgName = this.rgPhone = this.selectedOptions = this.detailedAddress =
+          ''
       } else {
         window.alert('请输入正确的手机号码')
       }

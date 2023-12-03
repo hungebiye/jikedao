@@ -12,7 +12,7 @@
       </el-col>
       <el-col :span="22">
         <div class="grid-content bg-purple">
-          <el-table :data="$store.state.orderList" border style="width: 100%" max-height="530">
+          <el-table :data="$store.state.orderList" border style="width: 100%" max-height="500">
             <!-- <el-table-column label="创建日期"  prop="createdTime">
              
             </el-table-column>

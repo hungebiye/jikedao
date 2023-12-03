@@ -4,7 +4,7 @@
     <Swiper></Swiper>
     <Seckill></Seckill>
     <!-- keep-alive影响组件数据更新 -->
-    <div id="router-link">
+    <div id="router-link" style=";margin: 25px 100px;">
       <router-view v-if="!$route.meta.include"></router-view>
       <keep-alive>
         <!-- 购物车第二次正常运行 -->
@@ -47,7 +47,6 @@ export default {
   mounted() {
     this.$store.commit('hasUser')
   },
-  methods: {},
   directives: {
     // 自定义vue指令，没用到
     focus: focus

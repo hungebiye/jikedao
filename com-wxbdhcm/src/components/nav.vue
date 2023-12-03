@@ -5,7 +5,7 @@
         <el-dropdown @command="handleCommand">
           <el-avatar
             class="avatar"
-            src="https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png"
+            :src=avatar_src
           ></el-avatar>
           <el-dropdown-menu slot="dropdown">
             <el-dropdown-item :icon="userIcon" command="/backStage/personalRoute">个人中心</el-dropdown-item>
@@ -39,7 +39,16 @@ export default {
   data() {
     return {
       inputMsg: 'input',
-      userIcon: 'el-icon-user'
+      userIcon: 'el-icon-user',
+    }
+  },
+  computed: {
+    avatar_src() {
+      if (this.$store.state.user) {
+        return this.$store.state.user.avatar
+      } else {
+        return 'https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png'
+      }
     }
   },
   methods: {

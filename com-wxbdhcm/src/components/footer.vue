@@ -2,7 +2,15 @@
   <div id="footer">
     <div class="footer-list">
       <div class="joinUs">
-        <span>cccqq</span>
+        <span>加入我们</span>
+        <ul v-for="(item, index) in helpList" :key="index + 1">
+          <li>
+            <el-link type="primary">{{ item }}</el-link>
+          </li>
+        </ul>
+      </div>
+      <div class="joinUs">
+        <span>用户协议</span>
         <ul v-for="(item, index) in helpList" :key="index + 1">
           <li>
             <el-link type="primary">{{ item }}</el-link>
@@ -31,20 +39,6 @@
               <el-link type="info">{{ item }}</el-link>
             </li>
           </ul>
-        </div>
-      </div>
-      <div class="img">
-        <div>
-          <i class="el-icon-download"></i>
-          <span>下载APP</span>
-        </div>
-        <div>
-          <i class="el-icon-share"></i>
-          <span>分享我们</span>
-        </div>
-        <div>
-          <i class="el-icon-loading"></i>
-          <span>更多功能</span>
         </div>
       </div>
     </div>

@@ -11,15 +11,6 @@ const routes = [
     component: () => import('../views/Home.vue'),
     children: [
       {
-        path: '/backStage',
-        name: 'Home',
-        component: backStage,
-        meta: {
-          requireLogin: true,
-          include: true
-        }
-      },
-      {
         /* 购物车模块 */
         path: '/cmDetails',
         component: () => import('../views/commodityDetails.vue'),
@@ -44,17 +35,6 @@ const routes = [
       {
         path: '/Shopping',
         component: () => import('../views/Shopping.vue'),
-        //路由守卫
-        // beforeEnter: (to, from, next) => {
-        //   // 判断登录
-        //   if(sessionStorage.getItem('logined')){
-        //     next()
-        //   }
-        //   else{
-        //     window.alert("请先登录")
-        //     next('/Login')
-        //   }
-        // },
         meta: {
           include: true
         }
@@ -76,63 +56,68 @@ const routes = [
           }
         }
       },
+    ]
+  },
+  {
+    path: '/backStage',
+    meta: {
+      requireLogin: true,
+      include: true
+    },
+    component: () => import('../views/backStage.vue'),
+    //子路由路径前加/表示绝对路径 不加/会自动添加上父路由路径
+    children: [
       {
-        path: '/backStage',
+        path: 'user',
+        component: () => import('../views/backStageRouter/userRoute.vue'),
+        name: 'user',
         meta: {
           requireLogin: true,
           include: true
-        },
-        component: () => import('../views/backStage.vue'),
-        //子路由路径前加/表示绝对路径 不加/会自动添加上父路由路径
-        children: [
-          {
-            path: '/backStage/user',
-            component: () => import('../views/backStageRouter/userRoute.vue'),
-            name: 'user',
-            meta: {
-              requireLogin: true,
-              include: true
-            }
-          },
+        }
+      },
 
-          {
-            path: '/backStage/order',
-            component: () => import('../views/backStageRouter/orderRoute.vue'),
-            name: 'order'
-          },
-          {
-            path: '/backStage/shop',
-            name: 'shop',
-            component: () => import('../views/backStageRouter/shopRoute.vue'),
-            meta: {
-              requireLogin: true,
-              include: true
-            }
-          },
-          {
-            path: 'shopCar',
-            name: 'shopCar',
-            component: () => import('../views/backStageRouter/shoppingCarRoute.vue'),
-            meta: {
-              requireLogin: true,
-              include: true
-            }
-          },
-          {
-            path: 'personal',
-            name: 'personal',
-            component: () => import('../views/backStageRouter/personalRoute.vue'),
-            meta: {
-              requireLogin: true,
-              include: true
-            }
-          }
-        ]
+      {
+        path: 'order',
+        component: () => import('../views/backStageRouter/orderRoute.vue'),
+        name: 'order',
+        meta: {
+          requireLogin: true,
+          include: true
+        }
+      },
+      {
+        path: 'shop',
+        name: 'shop',
+        component: () => import('../views/backStageRouter/shopRoute.vue'),
+        meta: {
+          requireLogin: true,
+          include: true
+        }
+      },
+      {
+        path: 'shopCar',
+        name: 'shopCar',
+        component: () => import('../views/backStageRouter/shoppingCarRoute.vue'),
+        meta: {
+          requireLogin: true,
+          include: true
+        }
+      },
+      {
+        path: 'personal',
+        name: 'personal',
+        component: () => import('../views/backStageRouter/personalRoute.vue'),
+        meta: {
+          requireLogin: true,
+          include: true
+        }
       }
     ]
   },
   {
     path: '/register',
+    name: 'Register',
     component: () => import('../views/register.vue')
   },
   {

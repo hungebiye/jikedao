@@ -33,7 +33,8 @@ const bodyParser = require('body-parser')
 
 // 使用中间件
 // 对body-parser进行配置
-app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.json({limit: '50mb', extended: true})); 
+app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }))
 // 日志
 app.use(logger('dev'))
 // json格式解析
